@@ -47,7 +47,7 @@ app.use("/api/categories", categoryRoute);
 
 app.get("/",(req,res)=>{
   res.setHeader("Access-Control-Allow-Credentials","true");
-  res.send(api is running...)
+  res.send("api is running...")
 })
 app.listen(PORT, () => {
   console.log("Backend is running.");
