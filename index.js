@@ -17,7 +17,7 @@ app.use("/images", express.static(path.join(__dirname, "/images")));
 
 
 mongoose
-  .connect("mongodb+srv://Root:Root@cluster0.tawigsb.mongodb.net/blogging", {
+  .connect("mongodb+srv://Root:Root@cluster0.4sml1hh.mongodb.net/blogging", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
