@@ -8,16 +8,16 @@ const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
-
+const PORT = process.env.PORT || 5000;
 dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 
-app.use(express.static(path.join(__dirname, "../client/build/index.html")));
+
 
 mongoose
-  .connect("mongodb://0.0.0.0:27017/blogging", {
+  .connect("mongodb+srv://Root:Root@cluster0.tawigsb.mongodb.net/blogging", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -45,10 +45,10 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-app.use("*",(req,res)=>{
-  res.sendFile(path.join(__dirname, "../client/build/index.html"))
+app.get("/",(req,res)=>{
+  res.setHeader("Access-Control-Allow-Credentials","true");
+  res.send(api is running...)
 })
-
-app.listen("5000", () => {
+app.listen(PORT, () => {
   console.log("Backend is running.");
 });
