@@ -9,12 +9,13 @@ const categoryRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
 const PORT = process.env.PORT || 5000;
+const cors = reuire("cors");
 dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
 
-
+app.use(cors());
 
 mongoose
   .connect("mongodb+srv://Root:Root@cluster0.4sml1hh.mongodb.net/blogging", {
